@@ -91,7 +91,8 @@ void nextPermutation(vector<int>& nums) {
         }
     }
 
-
+// time complexity : near about O(3N)
+// space complexity : O(1) ..... no extra space
 
 
 
