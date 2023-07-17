@@ -54,7 +54,8 @@ int upperBound(vector<int> &arr, int x, int n) {
 //time complexity: O(logN)
 //space coplexity : O(1)
 
-
+//C++ has an in built library function to fnd the upper bound:
+upper_bound(arr.begin(), arr.end());
 
 
 
