@@ -66,7 +66,10 @@ int lowerBound(vector<int> arr, int n, int x) {
     return ans;
 }
 
-
+/*
+C++ has an in built function for lower bound:
+lower_bound(arr.begin(), arr.end());
+*/
 
 
 
