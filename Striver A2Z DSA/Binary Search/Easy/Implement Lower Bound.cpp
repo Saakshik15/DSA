@@ -66,6 +66,9 @@ int lowerBound(vector<int> arr, int n, int x) {
     return ans;
 }
 
+//time complexity: O(logN)
+//space complexity: O(1)
+
 /*
 C++ has an in built function for lower bound:
 lower_bound(arr.begin(), arr.end());
