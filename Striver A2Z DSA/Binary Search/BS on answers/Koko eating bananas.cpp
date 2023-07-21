@@ -83,10 +83,47 @@ BS(arr[], maxHours){
 func(int mid, int arr[]){
   totalHrs=0;
   for(i=0 to n-1){
-    totalHrs += ceil(arr[i]/hourly);
+    totalHrs += ceil(arr[i]/mid);
   }
 return totalHrs;
 }
 
 //time complexity : O(log MaxEle) * O(N)
 //space complexity : O(1)
+
+
+
+//code :
+
+int maxElement(vector<int>& arr){
+        int maxi = INT_MIN;
+        for(int i=0; i<arr.size(); i++){
+            maxi = max(maxi, arr[i]);
+        }
+        return maxi;
+    }
+
+    long long findtotalhrs(vector<int>& arr, int hourly){
+        long long totalhrs = 0;
+        for(int i=0; i<arr.size(); i++){
+            totalhrs+=ceil((double)arr[i]/(double)hourly);
+        }
+        return totalhrs;
+    }
+
+    int minEatingSpeed(vector<int>& piles, int h) {
+        int low = 1; 
+        int high = maxElement(piles);
+        while(low < high){
+            int mid = low + (high-low)/2;
+            int totalhrs = findtotalhrs(piles, mid);
+
+            if(totalhrs <= h){
+                high = mid;
+            }
+            else{
+                low = mid + 1;
+            }
+        }
+        return low;
+    }
