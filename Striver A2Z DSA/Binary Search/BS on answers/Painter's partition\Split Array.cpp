@@ -19,8 +19,8 @@ Approach : optimal approach using binary search
 
 set low= max(arr[]) and high = sum(arr[])
 find mid = (low+high)/2
-Eliminate the halves based on the number of students returned by countStudents():
-1.If students > m: we will eliminate the left half and consider the right half(i.e. low = mid+1).
+Eliminate the halves based on the number of students returned by helper():
+1.If painters/arrays > m: we will eliminate the left half and consider the right half(i.e. low = mid+1).
 2.else mid is possible answer but we want minimum ans, so eliminate right half and consider the left half(i.e. high = mid-1).
 finally return low as low will be pointing to answer.
 */
