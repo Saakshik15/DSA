@@ -17,7 +17,6 @@ Solution :
 
 Approach : optimal approach using binary search
 
-Edge case : If m > n: In this case, allocation is not possible and so, we will return -1.
 set low= max(arr[]) and high = sum(arr[])
 find mid = (low+high)/2
 Eliminate the halves based on the number of students returned by countStudents():
