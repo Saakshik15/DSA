@@ -31,3 +31,32 @@ Node* insertAtFirst(Node* head, int newValue) {
 
     return head;
 }
+
+
+//code for inserting at the end and beginning of the linked list :
+
+    //Function to insert a node at the beginning of the linked list.
+    Node *insertAtBegining(Node *head, int x) {
+    
+       Node* temp = new Node(x);
+       temp->next= head;
+       head= temp;
+       
+       return head;
+    }
+    
+    
+    //Function to insert a node at the end of the linked list.
+    Node *insertAtEnd(Node *head, int x)  {
+    
+       Node* temp= new Node(x);
+       
+       if(head==NULL) return temp;
+       
+       Node* dummy = head;
+       while(dummy->next){
+           dummy= dummy->next;
+       }
+       dummy->next = temp;
+       return head;
+    }
