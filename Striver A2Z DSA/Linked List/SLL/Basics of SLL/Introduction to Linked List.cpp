@@ -34,7 +34,7 @@ The head of the linked list is the first element of the array and tail is the la
 //code :
 
 Node* constructLL(vector<int>& arr) {
-    // Write your code here
+    
     Node* temp = new Node(arr[0]);
     Node* head = temp;
 
