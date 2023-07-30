@@ -23,12 +23,6 @@ Lastly, we sort the array and return all possible strings of length ‘K’ with
 
 //code : 
 
-/*
-    Time Complexity: O(2^N)
-    Space Complexity: O(N)
-
-    Where 'N' is the length of the string to be created.
-*/
 void Helper(int N, string &str, int ind, vector<string> &ans) {
     if (ind == N) {
         // Terminate binary string and push it to the answer vector.
