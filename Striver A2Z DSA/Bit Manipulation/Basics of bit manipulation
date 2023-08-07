@@ -1,90 +1,88 @@
 Bit Manipulation : 
 
-In memory, each number is denoted in binary form.
+	In memory, each number is denoted in binary form.
 
 Operators :
 
 1. bitwise AND (&) operator:
 all 1's =1, any 0 = 0.
 
-eg. a=5, b=6
-
-5 -> 101
-6 -> 110
-5&6->100
+	eg. a=5, b=6
+	
+	5 -> 101
+	6 -> 110
+	5&6->100
 
 
 2. bitiwse OR (|) operator:
 All 0's =0, any 1 = 1.
 
-eg. a=5, b=6
-
-5 -> 101
-6 -> 110
-5|6->111
+	eg. a=5, b=6
+	
+	5 -> 101
+	6 -> 110
+	5|6->111
 
 
 3. bitwise XOR (^) operator:
-even no of 1's= 0
-odd no of 1's =1
-
-eg. a=5, b=7
-
-5 ->  101
-7 ->  111
-XOR-> 010
-
-
-If two same numbers are XORed, the value you get will be 0.
+	even no of 1's= 0
+	odd no of 1's =1
+	
+	eg. a=5, b=7
+	
+	5 ->  101
+	7 ->  111
+	XOR-> 010
+	
+	If two same numbers are XORed, the value you get will be 0.
 
 4. bitwise negation (~) operator:
 
-this operator flips the bits of a number.
-
-eg. a=5
-
-a  -> 101
-~a -> 010
-
+	this operator flips the bits of a number.
+	
+	eg. a=5
+	
+	a  -> 101
+	~a -> 010
 
 5. right shift (>>) operator:
 
-The binary digits will be shifted to right and rightmost digit will be discarded and trailing zeros will be added to the left.
-eg. a= 5
-In binary, 101
+	The binary digits will be shifted to right and rightmost digit will be discarded and trailing zeros will be added to the left.
+	eg. a= 5
+	In binary, 101
+	
+	a>>1 means
+	010
+	
+	the rightmost digit will be discarded.
+	
+	eg. b=10
+	
+	10>>3 means right shift 10 by 3 places
+	10 in binary is 1010
+	10 after right shifting 3 places 0001
 
-a>>1 means
-010
-
-the rightmost digit will be discarded.
-
-eg. b=10
-
-10>>3 means right shift 10 by 3 places
-10 in binary is 1010
-10 after right shifting 3 places 0001
-
-Right shifting the digit actually means dividing it by 2.
-eg. right shift by 3 digits means divide the number by 2 thrice.
+	Right shifting the digit actually means dividing it by 2.
+	eg. right shift by 3 digits means divide the number by 2 thrice.
 
 
 6. left shift (<<) operator:
 
-The binary digits will be shifted to left.
-eg. a= 5
-In binary, 101
-
-a<<1 means
-1010
-the digits are shifted to left by 1 place and trailing zero is added to the right.
-
-eg. b=10
-
-10<<3 means left shift by 3 places
-10 in binary is 1010
-10 after left shifting 3 places: 1010000
-
-left shifting the number n i times actually means multiplying the number n by 2 i times.
+	The binary digits will be shifted to left.
+	eg. a= 5
+	In binary, 101
+	
+	a<<1 means
+	1010
+	the digits are shifted to left by 1 place and trailing zero is added to the right.
+	
+	eg. b=10
+	
+	10<<3 means left shift by 3 places
+	10 in binary is 1010
+	10 after left shifting 3 places: 1010000
+	
+	left shifting the number n i times actually means multiplying the number n by 2, i times.
 
 
 
@@ -121,11 +119,11 @@ explaination : 1^2^3^4^5
 
 brute force :
 
-int XOR=0;
-for(int i=1; i<=N; i++){
-    XOR= XOR^i;
-}
-return XOR;
+	int XOR=0;
+	for(int i=1; i<=N; i++){
+	    XOR= XOR^i;
+	}
+	return XOR;
 
 Although the standard brute force solution works for this, but it has O(N) time complexity which can be optimized by observing a pattern :
 the pattern is :
@@ -180,7 +178,7 @@ using bit manipulation :
 if(N&1 == 0) even
 else odd
 
-because in odd number, the last bit is 1 and it is always set and in an even number, the last bit for digit 1 is not set.
+because for odd number, the last bit is 1 and it is always set and in an even number, the last bit for digit 1 is not set.
 
 Q. Given an integer N and i, check if i th bit of N is set or not
 
@@ -258,22 +256,22 @@ Q. Count the number of set bits in a number.
 
 solution 1 :
 
-while(n!=0){
-    if(n&1 == 1) cnt++;
-    n= n>>1;
-}
-print(cnt);
+	while(n!=0){
+	    if(n&1 == 1) cnt++;
+	    n= n>>1;
+	}
+	print(cnt);
 
 the time complexity will be the total number of bits, also can be said as the MSB.
 
 
 solution 2 :
 
-while(n!=0){
-    n= n&(n-1);
-    cnt++;
-}
-print(cnt);
+	while(n!=0){
+	    n= n&(n-1);
+	    cnt++;
+	}
+	print(cnt);
 
 the time complexity of this solution will be the total number of SET bits in the number. 
 
