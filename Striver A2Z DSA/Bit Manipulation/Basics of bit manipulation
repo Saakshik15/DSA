@@ -1,0 +1,280 @@
+# Bit Manipulation : 
+
+In memory, each number is denoted in binary form.
+
+# Operators :
+
+1. bitwise AND (&) operator:
+all 1's =1, any 0 = 0.
+
+eg. a=5, b=6
+
+5 -> 101
+6 -> 110
+5&6->100
+
+
+2. bitiwse OR (|) operator:
+All 0's =0, any 1 = 1.
+
+eg. a=5, b=6
+
+5 -> 101
+6 -> 110
+5|6->111
+
+
+3. bitwise XOR (^) operator:
+even no of 1's= 0
+odd no of 1's =1
+
+eg. a=5, b=7
+
+5 ->  101
+7 ->  111
+XOR-> 010
+
+
+If two same numbers are XORed, the value you get will be 0.
+
+4. bitwise negation (~) operator:
+
+this operator flips the bits of a number.
+
+eg. a=5
+
+a  -> 101
+~a -> 010
+
+
+5. right shift (>>) operator:
+
+The binary digits will be shifted to right and rightmost digit will be discarded and trailing zeros will be added to the left.
+eg. a= 5
+In binary, 101
+
+a>>1 means
+010
+
+the rightmost digit will be discarded.
+
+eg. b=10
+
+10>>3 means right shift 10 by 3 places
+10 in binary is 1010
+10 after right shifting 3 places 0001
+
+Right shifting the digit actually means dividing it by 2.
+eg. right shift by 3 digits means divide the number by 2 thrice.
+
+
+6. left shift (<<) operator:
+
+The binary digits will be shifted to left.
+eg. a= 5
+In binary, 101
+
+a<<1 means
+1010
+the digits are shifted to left by 1 place and trailing zero is added to the right.
+
+eg. b=10
+
+10<<3 means left shift by 3 places
+10 in binary is 1010
+10 after left shifting 3 places: 1010000
+
+left shifting the number n i times actually means multiplying the number n by 2 i times.
+
+
+
+
+# Basic questions to get introduced to bit manipulation :
+
+Q. In an array of integers, every integer occurs twice except one integer. Find the integer which occurs only once.
+
+suppose, the array is 
+arr= [1, 2, 3, 4, 4, 3, 2]
+Now, performing XOR operation on all elements of the array, equal elements will be cancelled out and the remaining element will be the element which occurs only once.
+
+	int XOR=0;
+	for(int i=0; i<n; i++){
+    	    XOR = XOR^arr[i];
+	}
+	return XOR;
+
+
+Q. swap two numbers without using a third vaiable :
+
+suppose a=5 and b=7
+then using the bitwise xor operator, we can perform the following steps:
+
+1. a= a^b = 5^7
+2. b= a^b = 5^7^7  = 5
+3. a= a^b = 5^7 ^5 = 7
+
+Q. Given an integer N, print the XOR of all the numbers between 1 to N.
+
+eg. input : 5
+output : 1
+explaination : 1^2^3^4^5
+
+brute force :
+
+int XOR=0;
+for(int i=1; i<=N; i++){
+    XOR= XOR^i;
+}
+return XOR;
+
+Although the standard brute force solution works for this, but it has O(N) time complexity which can be optimized by observing a pattern :
+the pattern is :
+
+Number    XOR
+
+N=1        1
+N=2        3
+N=3        0
+N=4        4
+N=5        1
+N=6        7
+N=7        0
+N=8        8
+
+so, the solution can be optimized to :
+
+if(N%4 == 0) return N;
+if(N%4 == 1) return 1;
+if(N%4 == 2) return n+1;
+if(n%4 == 3) return 0;
+
+this has a time complexity of O(1) much better than the brute force solution no matter how large the number is.
+
+Q. Given a range of integers from L to R, find the XOR of all elements between L to R
+in other words, XOR of (L ^ L+1 ^ L+2 ^ ... ^ R-1 ^ R).
+
+Solution :
+this can be simply done using the XOR property :
+
+if the range is say, 3 to 6 then the XOR will be 3^4^5^6
+but, if we do XOR(R) ^ XOR(L-1) then,
+
+XOR(6) ^ XOR(L-1)
+= (1^2^3^4^5^6) ^ (1^2)
+= (3^4^5^6)
+
+thus we will get our desired answer by using this in O(1) time complexity.
+
+step 1 : find XOR(R)
+step 2 : find XOR(L-1)
+step 3 : find XOR(R) ^ XOR(L-1)
+
+
+Q. Check if an integer N is even or odd.
+
+normal way : 
+if (N%2 == 0) even
+else odd
+
+using bit manipulation :
+if(N&1 == 0) even
+else odd
+
+because in odd number, the last bit is 1 and it is always set and in an even number, the last bit for digit 1 is not set.
+
+Q. Given an integer N and i, check if i th bit of N is set or not
+
+the best way to find out the set bit is creating a mask :
+
+suppose the number is 11001 and we have to check if the 3rd bit is set or not.
+then, we will create a mask in which only 3rd bit will be set and we will perform a & operation in the mask and integer N.
+
+to create a mask, start with 1 and left shift it to i
+(1<<i)
+If the bit is set, then the resulting number will be a non-zero number as 1&1 is 1 and if the bit is not set then the number will be zero as 1&0 is 0 
+
+bit  43210
+     11001
+mask 01000
+
+if(mask&n == 1) return true
+else return false
+
+Q. Set the i th bit of a given integer n.
+
+Similar to finding the i th bit is set or not, but this time create a mask and do the OR operation so if the bit is not set, it will be set and if the bit is set it will remain set.
+
+mask = (1<<i)
+n = n|mask
+
+or can be done in this way:
+n= n|(1<<i)
+
+
+Q. Clear the i th bit of a given integer n.
+
+create a mask (1<<i), make its negation, like ~(1<<i) so the bit to be cleared would be zero and all other would be one.
+AND the mask with the integer n, so the bit will be cleared as 1&0 = 0 and 0&0 = 0
+
+mask= ~(1<<i)
+n= n&mask
+
+or can also be done as :
+n= n& ~(1<<i)
+
+Q. Given an integer n, remove the last set bit.
+
+solution:
+
+n&(n-1) will clear the last set bit of an integer.
+eg. binary representation of the integer 13 is 1101 and n-1 = 13-1=12 will be 1100
+ANDing these two integers, 
+
+13 -> 1101
+12 -> 1100
+AND-> 1100
+
+cleared the last bit.
+
+for 12,
+12 -> 1100
+11 -> 1011
+AND-> 1000
+
+also cleared the last bit.
+
+Q. Check if a number is a power of two.
+
+for an integer n, if it is a power of two, then (n-1)&n will be resulting in 0.
+eg. binary representation of 8 is 1000 and of 7 is 0111
+
+8 -> 1000
+7 -> 0111
+AND->0000
+
+thus, if n&(n-1) == 0 then the number is a power of two else not.
+
+Q. Count the number of set bits in a number.
+
+solution 1 :
+
+while(n!=0){
+    if(n&1 == 1) cnt++;
+    n= n>>1;
+}
+print(cnt);
+
+the time complexity will be the total number of bits, also can be said as the MSB.
+
+
+solution 2 :
+
+while(n!=0){
+    n= n&(n-1);
+    cnt++;
+}
+print(cnt);
+
+the time complexity of this solution will be the total number of SET bits in the number. 
+
+
