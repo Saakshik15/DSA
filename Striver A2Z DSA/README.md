@@ -8,5 +8,7 @@ Contains :
 1. Arrays
 2. Sorting
 3. Binary Search
+4. Linked List
+5. Bit manipulation
 
 Will keep updating the repo till I finish all the questions from the sheet.
