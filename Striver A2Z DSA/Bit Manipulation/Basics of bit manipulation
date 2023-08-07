@@ -1,8 +1,8 @@
-# Bit Manipulation : 
+Bit Manipulation : 
 
 In memory, each number is denoted in binary form.
 
-# Operators :
+Operators :
 
 1. bitwise AND (&) operator:
 all 1's =1, any 0 = 0.
@@ -89,7 +89,7 @@ left shifting the number n i times actually means multiplying the number n by 2 
 
 
 
-# Basic questions to get introduced to bit manipulation :
+Basic questions to get introduced to bit manipulation :
 
 Q. In an array of integers, every integer occurs twice except one integer. Find the integer which occurs only once.
 
