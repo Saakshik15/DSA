@@ -39,27 +39,22 @@ void Stack::push(int x){
     top++;
     arr[top] = x;
 }
-
 int Stack::getTop(){
 	if(top == -1) return 0;
     return arr[top];
 }
-
 void Stack::pop(){
     arr[top]= 0;
     top--;
 }
-
 bool Stack::isEmpty(){
     if(top==-1) return true;
     return false;
 }
-
 bool Stack::isFull(){
     if(top==size-1) return true;
     return false;
 }
-
 void Stack::display(){
     for(int i=top; i>=0; i--)
         cout<<arr[i]<<"\n";
@@ -89,7 +84,7 @@ int main(){
 		
 		switch (choice){
       
-			case 1 : 
+		  case 1 : 
 			if(stk.isFull()){
 				cout<<"Cannot Insert! The stack is full\n\n\n";
 			}else{
@@ -97,42 +92,31 @@ int main(){
 				int ele;
 				cin>>ele;
 				stk.push(ele);
-			} 
-			break;
-			
-			case 2 : 
+			} break;
+		  case 2 : 
 			if(stk.isEmpty()){
 				cout<<"Cannot delete! Stack is already empty!!!\n\n\n";
 			}else{
 				cout<<"Deleted the top of the stack\n\n\n"; stk.pop();
-			}
+			} break;
+		  case 3 : 
+      			cout<<"Top element of the stack is: "<<stk.getTop()<<"\n\n";
 			break;
-			
-			case 3 : 
-      cout<<"Top element of the stack is: "<<stk.getTop()<<"\n\n";
-			break;
-			
-			case 4: 
-      (stk.isEmpty()) ? cout<<"Stack is empty.\n" : cout<<"Stack is not empty\n\n\n";
-			break;
-			
-			case 5 : 
-      (stk.isFull()) ? cout<<"Stack is full.\n" : cout<<"Stack is not full.\n\n\n";
-			break;
-			
-			case 6 : 
-      cout<<"Elements of the stack are : \n"; stk.display();
-			break;
-			
-			case 7 : 
-      cout<<"exiting...";
-			break;
-			
-			default : 
-      cout<<"Enter a valid choice!!!\n";
+		  case 4: 
+      			(stk.isEmpty()) ? cout<<"Stack is empty.\n" : cout<<"Stack is not empty\n\n\n";
+			break;	
+		  case 5 : 
+      			(stk.isFull()) ? cout<<"Stack is full.\n" : cout<<"Stack is not full.\n\n\n";
+			break;	
+		  case 6 : 
+      			cout<<"Elements of the stack are : \n"; stk.display();
+			break;	
+		  case 7 : 
+      			cout<<"exiting...";
+			break;	
+		  default : 
+      			cout<<"Enter a valid choice!!!\n";
 		} 
-		
 	}while(choice!=7);
-    
     return 0;
 }
