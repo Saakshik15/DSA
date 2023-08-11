@@ -15,7 +15,7 @@ Working of a stack:
     When we push() an element on the stack, if the stack is not full, then the top is incremented by 1 and the element is pushed onto the stack.
     When we pop() an element of the stack, if the stack is not empty, then top element is removed and top is decremented by one.
     In other words, top of the stack is the only point from where we can insert to and delete elements from the stack.
-    Thus, the recently pudhed element will be popped first, hence is is LIFO (last-in first-out) or FILO (first-in last-out) data structure.
+    Thus, the recently pushed element will be popped first, hence is is LIFO (last-in first-out) or FILO (first-in last-out) data structure.
 
 Standard Stack Operations:
     push(): When we insert an element in a stack then the operation is known as a push. If the stack is full then the overflow condition occurs.
