@@ -1,3 +1,4 @@
+/*
 Approach :
 
 First, to implement stack using an array, we will be declaring an array of a pre-defined size.
@@ -11,8 +12,10 @@ We will define the following operations for the class stack:
 4. isEmpty() : this fuction will return true if the stack is empty, false otherwise.
 5. isFull() : if the stack is full, this operation will return true, and false otherwise.
 6. display() : this function will print all the elements of the stack.
-
+*/
+	
 //Menu-driven code for implementation of stack:
+
 
 #include<bits/stdc++.h>
 using namespace std;
