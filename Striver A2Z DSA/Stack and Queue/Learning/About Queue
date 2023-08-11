@@ -16,7 +16,7 @@ Standard Queue Operations:
       If the queue is full then the overflow condition occurs.
     pop(): When we delete an element from the front of the queue, the operation is known as a pop. 
       If the queue is empty means that no element exists in the queue, this state is known as an underflow state.
-    top(): It returns the front, means which is first inserted element of the queue.
+    front(): It returns the front, means which is first inserted element of the queue.
     isEmpty(): It determines whether the queue is empty or not.
     isFull(): It determines whether the queue is full or not.
     display(): It prints all the elements available in the queue.
