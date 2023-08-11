@@ -1,0 +1,41 @@
+Some theory points about stack data structure:
+
+What is a Stack?
+    A Stack is a linear data structure that follows the LIFO (Last-In-First-Out) principle. Stack has one end, which is top.
+    It contains only one pointer top pointer pointing to the topmost element of the stack. Whenever an element is added in the stack, 
+    it is added on the top of the stack, and the element can be deleted only from the stack. In other words, 
+    a stack can be defined as a container in which insertion and deletion can be done from the one end known as the top of the stack.
+
+Some key points related to stack :
+    It is called as stack because it behaves like a real-world stack, piles of books, etc.
+    A Stack is an abstract data type with a pre-defined capacity, which means that it can store the elements of a limited size.
+    It is a data structure that follows some order to insert and delete the elements, and that order can be LIFO or FILO.
+
+Working of a stack:
+    When we push() an element on the stack, if the stack is not full, then the top is incremented by 1 and the element is pushed onto the stack.
+    When we pop() an element of the stack, if the stack is not empty, then top element is removed and top is decremented by one.
+    In other words, top of the stack is the only point from where we can insert to and delete elements from the stack.
+    Thus, the recently pudhed element will be popped first, hence is is LIFO (last-in first-out) or FILO (first-in last-out) data structure.
+
+Standard Stack Operations:
+    push(): When we insert an element in a stack then the operation is known as a push. If the stack is full then the overflow condition occurs.
+    pop(): When we delete an element from the stack, the operation is known as a pop. 
+      If the stack is empty means that no element exists in the stack, this state is known as an underflow state.
+    top(): It returns the top element of the stack.
+    isEmpty(): It determines whether the stack is empty or not.
+    isFull(): It determines whether the stack is full or not.
+    display(): It prints all the elements available in the stack.
+
+Applications of Stack:
+    1. Balancing of symbols
+    2. string reversal
+    3. UNDO/REDO
+    4. recursion
+    5. DFS(Depth first search)
+    6. Backtracking
+    7. Expression conversion
+    8. Memory management
+
+
+
+
