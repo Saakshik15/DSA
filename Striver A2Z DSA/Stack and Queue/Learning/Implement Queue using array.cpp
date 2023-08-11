@@ -8,7 +8,7 @@ Then, we will declare variables called 'rear' and 'front', which can be used as 
 We will define the following operations for the class stack:
 1. push(int x) : this operation will push an element to the queue from the rear.
 2. pop() : this operation will pop the element at the front of the queue.
-3. top() : this operation will return the rear element of the queue.
+3. top() : this operation will return the front element of the queue.
 4. isEmpty() : this fuction will return true if the queue is empty, false otherwise.
 5. isFull() : if the queue is full, this operation will return true, and false otherwise.
 6. display() : this function will print all the elements of the queue fron front to rear.
@@ -45,7 +45,7 @@ void Queue::push(int x){
 }
 int Queue::getTop(){
 	if(rear == -1 || rear<front) return 0;
-    return arr[rear];
+    return arr[front];
 }
 void Queue::pop(){
     arr[front]= 0;
@@ -78,7 +78,7 @@ int main(){
     	cout<<"Enter the operation you want to perform with the Queue\n\n";
     	cout<<"1. Insert from rear of the queue\n";
     	cout<<"2. Delete from the front of the queue\n";
-    	cout<<"3. Get rear of the queue\n";
+    	cout<<"3. Get front(top) of the queue\n";
     	cout<<"4. Check if queue is empty\n";
     	cout<<"5. Check if the queue is full\n";
     	cout<<"6. Display all the elements of the queue\n";
