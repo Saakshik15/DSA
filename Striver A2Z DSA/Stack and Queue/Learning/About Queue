@@ -1,0 +1,31 @@
+Some theory points about Queue data structure:
+
+What is a queue? 
+    A Queue is a linear data structure that follows the FIFO (First-In-First-Out) principle. Queue has two ends, which are front and rear.
+    The front is used to delete the element of the queue and rear is used to insert elements in the queue. Whenever an element is added in the queue, 
+    it is added from rear of the queue, and the element can be deleted only from front of the queue. In other words, 
+    a queue can be defined as a container in which insertion and deletion can be done from two ends known as rear and front respectively.
+
+Working of a queue:
+    When we push() an element to the queue, if the queue is not full, then the rear is incremented by 1 and the element is pushed int the queue.
+    When we pop() an element from the queue, if the queue is not empty, then front element is removed and front is incremented by one.
+    Thus, the first element pushed in the queue will be popped first, hence is is FIFO (first-in first-out) data structure.
+
+Standard Queue Operations:
+    push(): When we insert an element in a queue from rear of the queue then the operation is known as a push. 
+      If the queue is full then the overflow condition occurs.
+    pop(): When we delete an element from the front of the queue, the operation is known as a pop. 
+      If the queue is empty means that no element exists in the queue, this state is known as an underflow state.
+    top(): It returns the rear, means which is recently inserted element of the queue.
+    isEmpty(): It determines whether the queue is empty or not.
+    isFull(): It determines whether the queue is full or not.
+    display(): It prints all the elements available in the queue.
+
+Applications of Queue:
+    1. Task Scheduling
+    2. Resource allocation
+    3. Batch processing 
+    4. Message buffering 
+    5. Operating systems
+    6. BFS(breadth first search algorithm)
+    7. Printer queues
