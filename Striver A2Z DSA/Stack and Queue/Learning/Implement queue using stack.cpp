@@ -133,14 +133,17 @@ top(){
     }
   output.top();
   }
+}
 
 //code from leetcode for approach 2:
 
 class MyQueue {
+
     stack<int> input, output;
+
 public:
     MyQueue() {
-      
+        
     }
     
     void push(int x) {
@@ -148,33 +151,49 @@ public:
     }
     
     int pop() {
-        if (output.empty()) {
-            // Transfer all elements from input to output to maintain FIFO order
-            while (!input.empty()) {
+        if(!output.empty()) {
+            int a= output.top();
+            output.pop();
+            return a;
+        }
+        else{
+            while(!input.empty()){
                 output.push(input.top());
                 input.pop();
             }
+            int a=output.top();
+            output.pop();
+            return a;
         }
-        int ans = output.top();
-        output.pop();
-        return ans;
+        return -1;
     }
     
     int peek() {
-        if (output.empty()) {
-            // Transfer all elements from input to output to maintain FIFO order
-            while (!input.empty()) {
-                output.push(input.top());
-                input.pop();
+        if(!output.empty())
+            return output.top();
+        else{
+            while(!input.empty()){
+            output.push(input.top());
+            input.pop();
             }
-        }
         return output.top();
+        }
+        return -1;
     }
     
     bool empty() {
         return output.empty() && input.empty();
     }
 };
+
+/**
+ * Your MyQueue object will be instantiated and called as such:
+ * MyQueue* obj = new MyQueue();
+ * obj->push(x);
+ * int param_2 = obj->pop();
+ * int param_3 = obj->peek();
+ * bool param_4 = obj->empty();
+ */
 
 
 
