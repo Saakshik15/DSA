@@ -38,7 +38,7 @@ Approach 2 : using monotonic stack.
 
 In this appraoch, we will simply traverse the given arr2 from the end of the array and will use a stack to find next greater elements.
 
-initializing a stack and traversing elements of the array, :
+initializing a stack and traversing elements of the array from the end, :
 if the stack is empty, push current element onto the stack
 if top of stack is greater than current value, assign top as next greater element of the current value and push current value on stack.
 if top of stack is less than current value, pop elements from stack until there is an element greater than the current element on top.
