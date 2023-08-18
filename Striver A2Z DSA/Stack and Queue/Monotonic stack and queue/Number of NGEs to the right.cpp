@@ -48,10 +48,16 @@ vector<int> countGreater(vector<int>&arr, vector<int>&query) {
 approach 2:
 
 In this approach, we will create a stack, and traverse through the query array and for each element of the query array, we will
-initialize a stack and traverse the given array from the back to the current element from the queury array.
-
+initialize a stack and traverse the given array from the last element to the current element from the query array.
+If the element traversing from the last is greater than the query[i] then, we will push the arr[last] to the stack as it is greater 
+than current element. 
+We will keep pushing all the greater elements to the stack traversing from the last of the array to the current 
+query[i] element. 
+and finally, we will store the size of the stack, i.e. total no of elements greater than query[i] to the right of the 
+array in the ans[i] th index.
 */
 
+//code :
 
 vector<int> countGreater(vector<int>&arr, vector<int>&query) {
     
