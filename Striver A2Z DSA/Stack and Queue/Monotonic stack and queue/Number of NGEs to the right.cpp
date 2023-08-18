@@ -1,7 +1,7 @@
 /*
 Problem statement :
 You are given an array 'arr' of length N.
-GIven Q queries, for each query, an index is given (0-based indexing) 
+Given Q queries, for each query, an index is given (0-based indexing) 
 Answer to each query is the number of the strictly greater elements to the right of the given index element.
 You must return an answer array of length M where answer[i] is the answer to the i th query.
 
@@ -47,5 +47,32 @@ vector<int> countGreater(vector<int>&arr, vector<int>&query) {
 /*
 approach 2:
 
+In this approach, we will create a stack, and traverse through the query array and for each element of the query array, we will
+initialize a stack and traverse the given array from the back to the current element from the queury array.
 
 */
+
+
+vector<int> countGreater(vector<int>&arr, vector<int>&query) {
+    
+    vector<int>ans(query.size(),-1);
+     int ind=query.size()-1;
+
+    for(int i=query.size()-1;i>=0;i--){
+	    
+        int el=arr[query[i]];
+        stack<int>st;
+        int last=arr.size()-1;
+        while(last!=query[i]){
+            if(arr[last]>el)
+                st.push(arr[last]);
+            last--;
+        }
+        ans[ind]=st.size();
+        ind--;
+    }
+    return ans;
+}
+
+//time complexity : O(N)
+//space complexity : O(N)
