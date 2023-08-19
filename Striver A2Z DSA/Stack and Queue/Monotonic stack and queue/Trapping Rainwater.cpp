@@ -20,7 +20,33 @@ and that number will be the amount water that will be trapped in the block at th
 Thus, if we are at any current index i, then the water that can be trapped at that index will be
 
 min(NGE(left of i), NGE(right of i)) - value at current index 
+*/
+//code :
 
+
+int trap(vector<int> height) {
+    int water=0;
+    for(int i=0; i<height.size(); i++){
+        int maxLeft = INT_MIN, maxRight = INT_MIN;
+        int mini = INT_MAX;
+      
+        //step1: find the max left
+        for(int j=0; j<=i; j++)
+            maxLeft = max(maxLeft, height[j]);
+        
+        //step 2: find the max right
+        for(int j=height.size()-1; j>=i; j--)
+            maxRight = max(maxRight, height[j]);
+        
+        //step 3: find the min of 1 and 2
+        min = min(maxLeft, maxRight);
+        water += min - height[i];
+    }
+    return water;
+}
+
+/*
+Time and space complexity analysis:
 For each index i, we have to find how much water it will trap, this will take a complete loop, i.e. O(N)
 Now, for every element at index i, a[i] we have to look for NGE to the right and left, 
 this will take a complete iteration from left to right, i.e. O(N)
@@ -51,6 +77,39 @@ space complexity : O(2N) for prefixMax and suffixMax arrays.
 /*
 Approach 3 : optimal approach using two pointers
 
+In this approach, we will be using two pointers, left and right.
+Left will initially be at index 0 and right at index arr.size()-1 th index.
+then, using a while loop, we will traverse the array till the left crosses the right pointer.
 
+then, we will find the left max which will be either height of current left or previous left max.
+Similarly, we will find out right max, which will either be current right or previous right max.
 
+there will be thus two conditions according to which one of the left max and right max is lesser:
+if left max is lesser, that means the water will be (left max- height[left]), 
+  we will thus add it to water and move the left pointer forward.
+else, if right max is lesser that means the water stored will be (right max- height[right])
+  we will thus add it to total water and move the right pointer backwards.
 */
+
+int trap(vector<int>& height) {
+  
+        int water = 0, left = 0, right = height.size()-1;
+        int lmax = INT_MIN, rmax = INT_MIN; 
+  
+        while(left < right){          
+            lmax = max(lmax, height[left]);
+            rmax = max(rmax, height[right]);
+            
+            if(lmax < rmax){
+                water += lmax - height[left];
+                left++;
+            }else{
+                water += rmax - height[right];
+                right--;
+            }
+        }
+        return water;
+    }
+
+//time complexity : O(N)
+//space complexity : O(1)
