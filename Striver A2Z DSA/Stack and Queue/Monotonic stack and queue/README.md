@@ -1,4 +1,4 @@
--What is monotonous increase stack?
+# What is monotonous increase stack?
 
   The elements in the an monotonous increase stack keeps an increasing order.
   The typical paradigm for monotonous increase stack:
@@ -11,7 +11,7 @@
     }
 
 
--What can monotonous increase stack do?
+# What can monotonous increase stack do?
     
   (1) find the previous less element of each element in a vector with O(n) time:
     What is the previous less element of an element?
