@@ -86,23 +86,55 @@ vector<int> asteroidCollision(vector<int>& asteroids) {
         }
     }
     //we will then store all elements of stack on the vector reversing the order as the stack is storing the elements in reverse
-    vector<int> ans;
-    while(!stk.empty()){
-        ans.push_back(stk.top());
-        stk.pop();
-    }
-    reverse(ans.begin(), ans.end());
-    return ans;
+    vector<int> ans(stk.size(),-1);
+        for(int i=ans.size()-1; i>=0; i--){
+            ans[i]= stk.top();
+            stk.pop();
+        }
+        return ans;
 }
 
+//time complexity : O(N) for the iteration over the input array asteroids[]
+//space complexity : O(N) for the stack
 
+//code without comments :
 
+vector<int> asteroidCollision(vector<int>& asteroids) {
+    
+    stack<int> stk;
 
-
-
-
-
-
-
-
+    for(int i=0; i<asteroids.size(); i++){
+        if(stk.empty() || asteroids[i] > 0) 
+            stk.push(asteroids[i]);
+        else{
+            while(true){
+                int top= stk.top();
+                if(top<0){
+                    stk.push(asteroids[i]);
+                    break;
+                } 
+                else if(top == -asteroids[i]){
+                    stk.pop();
+                    break;
+                }
+                else if(top > -asteroids[i]){
+                    break;
+                }
+                else{
+                    stk.pop();
+                    if(stk.empty()) {
+                        stk.push(asteroids[i]);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    vector<int> ans(stk.size(),-1);
+        for(int i=ans.size()-1; i>=0; i--){
+            ans[i]= stk.top();
+            stk.pop();
+        }
+        return ans;
+}
 
