@@ -19,32 +19,47 @@ Output: 444
 /*
 Approach 1 : brute force approach 
 
-The brute force approach to this problem is to find out all the subarrays of the given array, and then finding minimum of all the 
-subarrays and summing them up.
-This will end up taking O(N^3) time complexity and O(1) space complexity.
-
-We can further optimize this approach and find out the minimum while finding the subarrays itself, which can be done in O(N^2) time.
+The brute force approach to this problem is to find out all the  contiguous subarrays of the given array, 
+and then finding minimum of all the subarrays and summing them up.
+This will end up taking O(N^2) time complexity and O(1) space complexity.
 */
 
 //code :
 
-int minSubsetSum(vector<int>& arr) {
-    int n = arr.size();
-    int totalSum = 0;
+ int mod= 1e9 +7;
+
+    int sumSubarrayMins(vector<int>& arr) {
+        int n = arr.size();
+        int totalSum = 0;
 
     // Generate all subsets and calculate the sum of minimum elements
-    for (int i = 0; i < n; ++i) {
-        for (int j = i; j < n; ++j) {
+        for (int i = 0; i < n; i++) {
             int minElement = arr[i];
-            for (int k = i; k <= j; ++k) {
-                minElement = std::min(minElement, arr[k]);
+            for (int j = i; j < n; j++) {
+                    minElement = min(minElement, arr[k]);
+                totalSum += minElement;
+                totalSum %= mod; 
             }
-            totalSum += minElement;
         }
+        return totalSum;
     }
-    return totalSum;
-}
 
+//time complexity : O(N^2) gives TLE
+//space complexity : O(1)
+
+
+/*
+Approach 2 : optimal approach 
+
+In this approach, we will find total number of subarrays in which a particular value is minimum.
+
+for example, array is [1, 6, 4, 3] 
+Now, suppose, the total number of subarrays in which the number 1 will be minimum is 'a'
+simililary, 'b' for 6, 'c' for 4, and 'd' for 3.
+now, the toal sum of all the minimum elements of the subarrays for the given array will be 
+sum = (1*a + 6*b + 4*c + 3*d) 
+where the a,b,c,d variables are the total number of subarrays in which 1, 6, 4, 3 will be the minimum element.
+*/
 
 
 
