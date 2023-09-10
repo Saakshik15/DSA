@@ -90,6 +90,11 @@ Update the index of the character s[r] in the mpp map to the current value of r.
 This keeps track of the most recent occurrence of the character.
 
 Calculate the length of the current substring without repeating characters, which is r - l + 1.
+Update maxLen with the maximum of its current value and the calculated length of the current substring.
+Increment the right pointer r to move to the next character in the string.
+
+After the loop, maxLen will contain the length of the longest substring without repeating characters in the input string s.
+Return maxLen as the result.
 */
 
 //code :
