@@ -76,5 +76,39 @@ we find the repeating character to remove it from the window and start iterating
 this increases unnecessary iterations as instead of directly jumping to the index where the repeating character is present,
 we keep iterating to find the repeating character
 So, instead of those unnecessary iterations to remove the repeating character, we will simply store the indices of the characters 
-along with the characters to directly jump to the desired repeating character
+along with the characters to directly jump to the desired repeating character.
+
+Here, we will use unordered_map<char, int> in order to store the indices associated with the characters
+
+Algorithm :
+using while loop for iterating the string, inside the loop:
+Check if the character s[r] is already present in the mpp unordered_map by using mpp.find(s[r]) != mpp.end()  
+If the character is in the map, update the left pointer l to be the maximum of its current value and the index stored 
+in the map for the character s[r] + 1. This ensures that l points to the next character after the last occurrence of s[r].
+
+Update the index of the character s[r] in the mpp map to the current value of r. 
+This keeps track of the most recent occurrence of the character.
+
+Calculate the length of the current substring without repeating characters, which is r - l + 1.
 */
+
+//code :
+
+int lengthOfLongestSubstring(string s) {
+         unordered_map<char, int> mpp;
+        int l=0, r=0, maxLen=0;
+        int n= s.size();
+
+        while(r<n){
+            if (mpp.find(s[r]) != mpp.end()) 
+                l = max(mpp[s[r]] + 1, l);
+            mpp[s[r]]=r;
+            maxLen= max(maxLen, r-l+1);
+            r++;
+        }
+        return maxLen;
+    }
+
+//time complexity : O(N)
+//space complexity :O(N)
+
