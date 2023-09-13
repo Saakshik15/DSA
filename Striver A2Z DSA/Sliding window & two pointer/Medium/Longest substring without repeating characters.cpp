@@ -97,6 +97,30 @@ After the loop, maxLen will contain the length of the longest substring without 
 Return maxLen as the result.
 */
 
+//commented code:
+
+int lengthOfLongestSubstring(string s) {
+         unordered_map<char, int> mpp;
+        int l=0, r=0, maxLen=0;
+        int n= s.size();
+
+        while(r<n){
+            if (mpp.find(s[r]) != mpp.end())
+            //if we have a repeating character while traversing, increment l by moving l to a 
+              //character next to the last position(index) encountered of the character.
+                l = max(mpp[s[r]] + 1, l);
+
+            //store the index of character s[r] in the map where it is recently encountered
+            mpp[s[r]]=r;
+
+            //calculating the max length of string with unique characters encountered till now
+            maxLen= max(maxLen, r-l+1);
+            //incrementing the window
+            r++;
+        }
+        return maxLen;
+    }
+
 //code :
 
 int lengthOfLongestSubstring(string s) {
