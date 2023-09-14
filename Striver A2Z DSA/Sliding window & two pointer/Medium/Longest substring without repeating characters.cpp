@@ -109,6 +109,7 @@ int lengthOfLongestSubstring(string s) {
             //if we have a repeating character while traversing, increment l by moving l to a 
               //character next to the last position(index) encountered of the character.
                 l = max(mpp[s[r]] + 1, l);
+            //taking the max makes sure that the previous values which are not a part of window are not assigned as l
 
             //store the index of character s[r] in the map where it is recently encountered
             mpp[s[r]]=r;
