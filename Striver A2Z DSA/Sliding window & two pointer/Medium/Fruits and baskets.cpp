@@ -41,9 +41,39 @@ If the map mp contains more than two types of fruits, you enter the while loop. 
 from the start of the window (j) and decreases their counts in the map. If the count reaches 0, it removes that fruit type from the map. 
 This process continues until there are only two types of fruits left in the map.
 The function returns the value of maxi, which stores the maximum consecutive number of fruits for both baskets.
+
+---we will use a map and have a condition that there can only be max 2 type of fruits in the map. If it exceeds, we will remove the
+type of fruits from the left until we are left with only two types of fruits in the basket, i.e., in map.
+
+So, in short, w have to find a largest substring number of unique characters =2. 
+this problem can be reduced to the similar problem -"longest substring with k unique characters" where k=2.
 */
 
-// code:
+//code 1:
+
+int totalFruit(vector<int>& s) {
+
+        int i=0, j=0, maxlen= INT_MIN;
+        unordered_map<int, int>mp;
+        
+        while(j<s.size()){
+            mp[s[j]]++;
+
+            if(mp.size()<=2)
+                maxlen= max(maxlen, j-i+1);
+            
+            else if(mp.size()>2){
+                mp[s[i]]--;
+                if(mp[s[i]]==0)
+                    mp.erase(s[i]);
+                i++;
+            }
+            j++;
+        }
+        return maxlen;
+    }
+
+// code 2:
 
 int findMaxFruits(vector<int> &arr, int n) {
     unordered_map<int,int>mp;
@@ -65,4 +95,6 @@ int findMaxFruits(vector<int> &arr, int n) {
 
 //time complexity : O(N)
 // space complexity: O(N)
+
+
 
