@@ -46,7 +46,7 @@ vector<int> nextGreaterElements(vector<int>& nums) {
     vector<int> nge(n,-1);
 
     for(int i=((2*n)-1); i>=0; i--){
-        while(!stk.empty() &&nums[i%n]>=stk.top()){
+        while(!stk.empty() && nums[i%n]>=stk.top()){
             stk.pop();
         }
         if(i<n){
