@@ -46,38 +46,38 @@ int search(string pat, string txt) {
         int count = mp.size();  //to store the number of distinct characters in the map
         
         //Initially sliding window size
-        int l = 0, r = 0; 
-        while(r < txt.size()) {
+        int i = 0, j = 0; 
+        while(j < txt.size()) {
             
-            // it r'th part present then we reduce count whenever it's freq become zero 
-            if(mp.find(txt[r]) != mp.end()) {
-                mp[txt[r]]--; 
-                if(mp[txt[r]] == 0) 
+            // if j'th letter is present then we reduce count whenever its freq becomes zero 
+            if(mp.find(txt[j]) != mp.end()) {
+                mp[txt[j]]--; 
+                if(mp[txt[j]] == 0) 
                     count--; 
             }
-            // if we not reach, pat.size() window, that increae window
-            if(r-l+1 < pat.size()) {
-                r++; 
+            // if we haven't reached, pat.size() window, that increase window
+            if(j-i+1 < pat.size()) {
+                j++; 
             } 
             // If you reach window size, then find the answer, and slide the window 
-            else if(r-l+1 == pat.size()) {
+            else if(j-i+1 == pat.size()) {
                 if(count == 0) {
                     cntAnagram++; 
                 }
-                //If character is already present in map then reduce 
-                if(mp.find(txt[l]) != mp.end()) {
-                    mp[txt[l]]++; 
-                    if(mp[txt[l]] == 1) {
+                //If i'th character is present in map then before sliding the window increment its count in map 
+                if(mp.find(txt[i]) != mp.end()) {
+                    mp[txt[i]]++; 
+                    if(mp[txt[i]] == 1) {
                         count++; 
                     }
                 }
-                // slide window
-                r++, l++; 
+                // slide the window
+                j++, i++; 
             }
         }
         return cntAnagram; 
     }
 
 
-//time complexity : O(n+k) assume map to be working in constant time
+//time complexity : O(n+k) assuming map to be working in constant time
 //space complexity : O(26)
