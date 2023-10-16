@@ -28,7 +28,7 @@ iteration 0:
 [a b a b c] a a
 [a b a b c] a a b
 
-(this iteration will thus have in total 4 windows because we have to include a, b, c characters 
+(this iteration will thus have in total 4 substrings because we have to include a, b, c characters 
 AT LEAST once in the substring. thus when we get the window from i to j, we also consider all the 
 substrings including characters after the j as all these substring fulfill the requirement of having at
 least one a, b, c character in it. Thus, the total count of substrings will be 4 in the 1st iteration)
@@ -76,11 +76,12 @@ iteration 4: 5th window:
 [c a a b] 
 
 Now, how do we actually count all the substrings when we get the window having all the three characters?
+
 For counting all the substrings after we get the window, we subtract the j'th index from the size of the substring.
-ie, str.length()-j will give us all the substringsafter we get the window size.
+ie, str.length()-j will give us all the substrings after we get the window size.
 eg. in the first iteration, our j'th index is at 4th index, and the string length in this case is 8. (7+1)
-thus using str.length()-j, that is, 8-4 w get total number of substrings as 4.
-Which can also be verified from the iteration 1 above, that is we get toatal 4 substrings when we get all three 
+thus using str.length()-j, that is, 8-4 we get total number of substrings as 4.
+Which can also be verified from the iteration 1 above, that is we get total 4 substrings when we get all three 
 characters from i to j window.
 
 By using sliding window when we get the 1st valid window containing a, b, c then the number of valid substrings will be:
