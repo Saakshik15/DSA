@@ -72,6 +72,10 @@ int lowerBound(vector<int> arr, int n, int x) {
 /*
 C++ has an in built function for lower bound:
 lower_bound(arr.begin(), arr.end());
+
+NOTE:
+If we are applying lower_bound() on an increasing array, it gives us the value just greater than the element if not found.
+If we are applying it on an increasing array, we get the value less than or equal to the given element.
 */
 
 
