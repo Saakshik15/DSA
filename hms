@@ -1,0 +1,90 @@
+/*
+	    Project for implementation of 
+
+	 ***** HOTEL MANAGEMENT SYSTEM *****
+*/
+
+#include <iostream>
+#include <bits/stdc++.h>
+
+#define fast_io ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+
+#define pf(x) printf("%d", x);
+#define pff(x,y) printf("%d,%d", x,y);
+#define pfs(x) printf("%s",x);
+
+#define sf(x) scanf("%d", &x);
+#define sfs(x) scanf("%s", &x);
+
+using namespace std;
+
+class Hotel {
+	
+	int regNo;
+	string name;
+	int roomAllocated;
+	int cost;
+	int stayDays;
+	
+	Hotel();
+	
+	void hotelRoom();
+	void dining();
+	void bookHall();
+	void party();
+	void cater();
+	
+};
+
+void welcome(){
+	cout << "\n\n\n* * * * * WELCOME TO HOTEL MANAGEMENT SYSTEM * * * * *\n\n\n";
+	cout << "Choose the services you want from us:\n";
+	cout << "1. Hotel Room\n";
+	cout << "2. Dining\n";
+	cout << "3. Book a hall\n";
+	cout << "4. Organize party\n";
+	cout << "5. Catering services\n";
+	cout << "6. Exit";
+}
+
+void Hotel::hotelRoom(){
+	cout << "HOTEL ROOM BOOKING SERVICES:\n";
+	
+	cout << "Enter your details: ";
+	cout << "Enter your name:";
+	
+}
+
+int main(){
+	
+	fast_io;
+	cout << fixed;
+	
+	
+	int choice;
+	
+	do {
+		welcome();
+		sf(choice);
+		
+		switch(choice){
+			case 1: 
+				hotelRoom();
+			case 2: 
+				dining();
+			case 3: 
+				bookHall();
+			case 4:
+				party();
+			case 5:
+				cater();
+			case 6: 
+				cout << "THANK YOU FOR VISITING!\nHAVE A GOOD DAY AND PLEASE VISIT AGAIN!!\n\n";
+			default:
+				cout << "\nPLEASE ENTER A VALID CHOICE!";
+		}
+		
+	} while(choice!=6);
+	
+	return 0;
+}
