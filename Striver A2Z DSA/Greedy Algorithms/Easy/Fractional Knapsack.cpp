@@ -24,13 +24,11 @@ Note: The details of structure/class is defined in the comments above the given 
 //code:
 
 //class implemented
-/*
+
 struct Item{
     int value;
     int weight;
 };
-*/
-
 
 class Solution
 {
