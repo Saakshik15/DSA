@@ -66,3 +66,7 @@ class Solution
         return total;
     }    
 };
+
+//time complexity: O(nlogn)
+//space complexity: O(N)
+
