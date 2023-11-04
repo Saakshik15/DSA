@@ -8,6 +8,17 @@ Your goal is to maximize the number of your content children and output the maxi
 
 //Approach : two pointer and greedy
 
+/*
+Sort the greed factors of children and the sizes of cookies in non-decreasing order.
+Initialize a variable count to 0 to keep track of the number of children that can be content with a cookie.
+Use two pointers i and j to point to the current child's greed factor and the current cookie size, respectively.
+Iterate over the two sorted arrays, and for each cookie size, check if it can satisfy the current child's greed factor. 
+If so, assign the cookie to the child, increment count and move on to the next child and cookie. 
+If not, move on to the next cookie.
+Return count.
+*/
+
+
 //code:
 
 lass Solution {
