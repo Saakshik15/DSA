@@ -11,14 +11,17 @@
     };
 
 //iterative post-order traversal using 1 stack
+
+//code 1: (coding ninjas)
+
 vector<int> postorderTraversal(TreeNode* root){
 
-    stack<TreeNode*> nodeStack;
+    stack<TreeNode*> stk;
     vector<int> ans;
 
-    nodeStack.push(root);
+    stk.push(root);
 
-    while (nodeStack.size() > 0){
+    while (!stk.empty()){
         TreeNode* cur = nodeStack.top();
         nodeStack.pop();
         ans.push_back(cur->data);
@@ -26,9 +29,28 @@ vector<int> postorderTraversal(TreeNode* root){
         if(cur->left != NULL) nodeStack.push(cur->left);
         if(cur->right != NULL) nodeStack.push(cur->right);
     }
-    
     reverse(ans.begin(), ans.end());
     return ans;
 }
 
 
+//code 2: (leetcode)
+
+vector<int> postorderTraversal(TreeNode* root) {
+        vector<int> ans;
+        if(root==NULL) return ans;
+        
+        stack<TreeNode*> stk;
+        stk.push(root);
+
+        while (!stk.empty()){
+            TreeNode* cur = stk.top();
+            stk.pop();
+            ans.push_back(cur->val);
+
+            if(cur->left != NULL) stk.push(cur->left);
+            if(cur->right != NULL) stk.push(cur->right);
+        }
+        reverse(ans.begin(), ans.end());
+        return ans;
+    }
