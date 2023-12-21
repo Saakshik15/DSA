@@ -54,3 +54,37 @@ vector<int> postorderTraversal(TreeNode* root) {
         reverse(ans.begin(), ans.end());
         return ans;
     }
+
+
+//code 3: (leetcode striver)
+
+vector<int> postorderTraversal(TreeNode* root) {
+        vector<int> postorder;
+        if (root == NULL) return postorder;
+
+        stack<TreeNode*> s;
+        TreeNode* curr = root;
+
+        while (!s.empty() || curr) {
+            if (curr) {
+                s.push(curr);
+                curr = curr->left;
+            } else {
+                TreeNode* temp = s.top()->right;
+                if (!temp) {
+                    temp = s.top();
+                    s.pop();
+                    postorder.push_back(temp->val);
+
+                    while(!s.empty() && temp == s.top()->right){
+                        temp = s.top();
+                        s.pop();
+                        postorder.push_back(temp->val);
+                    }
+                } else {
+                    curr = temp;
+                }
+            }
+        }
+        return postorder;
+    }
