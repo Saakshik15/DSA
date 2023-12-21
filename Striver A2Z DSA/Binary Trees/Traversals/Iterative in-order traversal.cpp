@@ -12,6 +12,9 @@
     };
 
 //In-order traversal using iterative approach (stack)
+
+//code 1:
+
 vector<int> getInOrderTraversal(TreeNode *root){
     vector<int> answer;
 
@@ -34,3 +37,31 @@ vector<int> getInOrderTraversal(TreeNode *root){
     
     return answer;
 }
+
+
+//code 2:
+
+class Solution {
+public:
+    vector<int> inorderTraversal(TreeNode* root) {
+        stack<TreeNode*> stk;
+        TreeNode* node= root;
+        vector<int> ans;
+
+        while(true){
+            if(node) {
+                stk.push(node);
+                node= node->left;
+            }else{
+                if(stk.empty()) break;
+
+                node= stk.top();
+                stk.pop();
+                ans.push_back(node->val);
+                
+                node= node->right;
+            }
+        }
+        return ans;
+    }
+};
