@@ -1,6 +1,6 @@
 // Level-order traversal: traverse the tree level by level
 
-//code:
+//code: (Coding Ninjas)
 
 // TreeNode class structure
 
@@ -35,5 +35,36 @@ vector<int> levelOrder(TreeNode<int> * root){
     return ans;
 }
 
+//code: (Leetcode)
 
+//each level is stored in a different vector here and we have to return a vector<vector<int>> 
 
+class Solution {
+public:
+    vector<vector<int>> levelOrder(TreeNode* root) {
+
+        vector<vector<int>> ans;
+
+        if(root == NULL) return ans;
+
+        queue<TreeNode*> q;
+        q.push(root);
+
+        while(!q.empty()){
+            int size= q.size();
+            vector<int> level;
+
+            for(int i=0; i<size; i++){
+                TreeNode* node= q.front();
+                q.pop();
+
+                if(node->left) q.push(node->left);
+                if(node->right) q.push(node->right);
+
+                level.push_back(node->val);
+            }
+            ans.push_back(level);
+        }
+        return ans;
+    }
+};
