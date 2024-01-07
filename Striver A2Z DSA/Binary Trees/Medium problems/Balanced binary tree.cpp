@@ -26,5 +26,22 @@ bool check(node){
 
 //optimized approach
 
+  int getheight(TreeNode* root){
 
+        if(root==NULL) return 0;
+
+        int lh=getheight(root->left);
+        int rh=getheight(root->right);
+
+        if(lh==-1||rh==-1)return -1;
+        if(abs(lh-rh)>1)return -1;
+
+        return 1+max(lh,rh);
+    }
+
+    bool isBalanced(TreeNode* root) {
+        return (getheight(root)==-1)? false : true;       
+    }
+
+//tc: O(N)
 
