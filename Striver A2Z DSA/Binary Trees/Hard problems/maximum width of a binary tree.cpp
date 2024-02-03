@@ -96,3 +96,38 @@ public:
         return ans;
     }
 };
+
+
+/*
+Problem variation:
+
+in the above approach, we had to consider null nodes as well in counting the width of the tree, in a variation of this problem,
+where we dont need to consider null nodes, and just find out the maximum number of nodes which are present at a level, then we can
+apply simple bfs and calculate the total number of elements in the queue for that level and then traverse further.
+*/
+
+//code:
+
+int getMaxWidth(TreeNode<int> *root)
+{
+    int ans=0;
+    if(!root) return 0;
+
+    queue<TreeNode<int>*> q;
+    q.push(root);
+
+    while(!q.empty()){
+        int sz= q.size();
+        //found out the max of elements at a particular level
+        ans= max(ans, sz);
+
+        for(int i=0; i<sz; i++){
+            TreeNode<int>* front= q.front();
+            q.pop();
+
+            if(front->left) q.push(front->left);
+            if(front->right) q.push(front->right);
+        }
+    }
+    return ans;
+}
