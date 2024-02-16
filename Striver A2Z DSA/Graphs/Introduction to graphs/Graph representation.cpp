@@ -1,5 +1,5 @@
 /*
-We can represent undirected graph in two ways, 
+We can represent graph in two ways, 
 one is adjacency matrix and the other way is adjacency list.
 */
 
@@ -29,7 +29,7 @@ int main() {
         cin >> u >> v;
         
         adj[u][v] = 1;
-        adj[v][u] = 1;
+        adj[v][u] = 1; //Only if graph is undirected, not required for directed
     }
 
     // Print adjacency matrix
@@ -89,7 +89,7 @@ int main() {
         cin >> u >> v;
       
         adjList[u].push_back(v);
-        adjList[v].push_back(u); // If graph is undirected
+        adjList[v].push_back(u); // Only if graph is undirected, not required for directed
     }
 
     // Print adjacency list
@@ -104,7 +104,9 @@ int main() {
     return 0;
 }
 
-//space complexity: O(2E)
+//space complexity: O(2E) for undirected
+//space complexity: O(E) for directed
+
 
 
 
