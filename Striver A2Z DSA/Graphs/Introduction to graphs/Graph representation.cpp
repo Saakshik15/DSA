@@ -108,7 +108,12 @@ int main() {
 //space complexity: O(E) for directed
 
 
+/*
+Now, if the graph is given to be weighted, in the matrix, instead of marking fields as 1, 
+we will mark down the weight of the edge in the matrix.
 
+In case of adj lists, we will be storing the edges along with weights in pairs to get the weights of the edges.
+*/
 
 
 
