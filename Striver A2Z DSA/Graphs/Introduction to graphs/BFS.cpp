@@ -25,4 +25,6 @@ vector<int> bfsOfGraph(int V, vector<int> adj[]) {
 
 
 
-//
+/*
+In bfs, we take a node, put it in the queue and explore the whole node and its adj list at once, then go to next node and so on.
+*/
