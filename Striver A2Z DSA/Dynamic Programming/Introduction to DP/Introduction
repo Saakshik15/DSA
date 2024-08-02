@@ -7,7 +7,7 @@ Dynamic Programming can be described as storing answers to various sub-problems 
 The two common dynamic programming approaches are:
 
 Memoization: Known as the “top-down” dynamic programming, usually the problem is solved in the direction of the main problem to the base cases
-Tabulation: Known as the “bottom-up dynamic programming, usually the problem is solved in the direction of solving the base cases to the main problem
+Tabulation: Known as the “bottom-up" dynamic programming, usually the problem is solved in the direction of solving the base cases to the main problem
 
 For example, if fibonacci series is considered, for each function call, we have to calculate the value 
 for that call even of it has been repeated several times before.
@@ -22,13 +22,13 @@ fib(n){
   return fib(n-1) + fib(n-2);
 }
 
-but, if we create an array of dp, which is initialized by -1 values in case where result is not precomputed and when the result is computed,
+but, if we create an array of dp, which is initialized by -1 values in case where result is not precomputed, and when the result is computed,
 we can replace the -1 values by the result, then the code can be simply modified as:
 
 fib(n, int[] dp){
   if(n<=1) return n;
 
-  //if dp array is created as well as initialized
+  //if dp array is created as well as initialized by -1
   if(dp[n] != -1) return dp[n];
 
   return dp[n] = fib(n-1, dp) + fib(n-2, dp);
@@ -40,14 +40,14 @@ Time complexity: O(N)
   Since the overlapping subproblems will return the answer in constant O(1) time, the total number of function calls we make
   are O(N) only, hence the time complexity is O(N).
 Space complexity: O(N)
-  The call stack will take O(N) space and the DP array will take O(N) to store the precomputed vales. 
-  Hense ~O(N) space is required.
+  The call stack will take O(N) space and the DP array will take O(N) to store the precomputed values. 
+  Hence ~O(N) space is required.
 
 The above approach is called memoization. 
-It still used a recursive approach and hence can be called as a top-down approach.
+It still uses a recursive approach and starts to solve problem from top and moves to base case, hence can be called as a top-down approach.
 
 To convert a memoization solution to a tabulation or bottom up approach, we start from the base case and find
-answer to the actual question.
+answer to the actual question, moving to top.
 
 Here, in this case, we can state the base condition as 
 when n<=1 return n.
