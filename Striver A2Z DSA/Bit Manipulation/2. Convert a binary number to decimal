@@ -1,0 +1,19 @@
+Q. Given a binary number, convert the number to decimal format.
+
+Find the length of the binary number, run a loop from the end of the string to
+the first element and start multiplying the number (if 1) from the powers of 2^0 
+for each index moving onwards and skip multiplication for powers of 0 while 
+incrementing power of 2.
+
+
+int convertToDecimal (string x){
+  int len= x.length;
+  int p2=1, ans=0;
+
+  for(i= len-1 to 0){
+    if(x[i] == '1') num= num+ p2;
+    p2= p2*2;
+  }
+  return ans;
+}
+
