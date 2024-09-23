@@ -1,0 +1,17 @@
+Q. Given a decinal number N, convert it to binary number.
+
+We can convert a number to binary by simply diving the number by 2 and if the reminder is 1,
+append 1 to the string and if the reminder is 0, append 0 to the ans string.
+Lastly, reverse the string.
+
+string convertToBinary(int n){
+  res = "";
+
+  while(n!= 1){
+    if(n%2==1) res+= '1';
+    else res= += '0';
+    n= n/2;
+  }
+  reverse(res);
+  return res;
+}
