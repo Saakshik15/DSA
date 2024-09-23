@@ -1,0 +1,24 @@
+1's complement:
+
+  eg. given no is 13.
+  
+  the number as represented in binary format is 
+  
+  (13) -> (1101)
+  
+  flipping the bits, the number will be
+  
+  (0010)
+  
+  This is the 1's complement of the number given, 13.
+
+
+2's complement:
+
+  1. Figure out the 1's complement of a number
+  2. Add 1 to the 1's complement
+
+  for 13, 1's complemnt is (0010)
+  and adding 1 to it gives, (0011), which is 2's complement of 13.
+
+  
