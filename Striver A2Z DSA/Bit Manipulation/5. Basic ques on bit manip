@@ -1,0 +1,49 @@
+Q1. Swap two numbers
+  Given two numbers a and b, swap them using bit manipulation.
+
+    for XOR operator: even no of 1s -> 0
+                      odd no of 1s  -> 1
+  
+    for swapping two numbers using XOR:
+    a= a^b
+    b= a^b
+    a= a^b
+
+
+
+Q2. Check if the ith bit is set or not.
+  Given a number n, check if the ith bit of that no is set or not.
+
+  Using left shift operator:
+    If we have given the place of bit, i,
+    we can take a number 1 and left shift it by i
+    (eg. i=2, 1<<2 = ..0100 (the 2nd bit is 1 only and all other are 0)
+    if we perform & of this 1<<2 with the number we have, 
+    if the bit is set, we'll get a number >1
+    if the bit is not set, we'll get 0 number)
+
+    thus, if
+    (n & (1<<i)) != 0 
+    then the bit is set, else not.
+
+  Using right shift operator:
+    If we have given a number, say 13 and a bit place say i,
+    we'll right shift the given bit to the extreme right, by doing
+
+    n>>i 
+    (this way, the ith bit of n will be at the rightmost end)
+
+    now, if we perform & operation with the number 1 and we get 1, then the bit is set, else not,
+    since the last bit anding with 1 will give 1 if bit is set as anything else is 0 and 
+    will give 0 if the bit is not set.
+
+
+
+Q3. Set the ith bit.
+  Given a number n and a bit ith, set the bit to 1.
+
+        
+
+    
+    
+  
