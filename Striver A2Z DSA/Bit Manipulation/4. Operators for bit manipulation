@@ -1,0 +1,149 @@
+AND, OR, XOR, SHIFT, NOT are the operators used for bit manipulation.
+
+(NOTE: while storing numbers in binary format in the memory, if the number is in 32 bit
+representation, then the leftmost bit, ie 31st bit will store the sign of the integer
+the sign will be 0-> +ve and 1-> -ve integers.)
+
+
+AND operator (&):
+
+    all true -> true
+    1 false  -> false
+    
+    true & true -> true    (1 & 1 -> 1)
+    true & false -> false  (1 & 0 -> 0)
+    
+    eg. 7 & 13
+    7 in binary: 0111
+    13 in binary: 1101
+    
+    7 & 13:
+    
+       0 1 1 1
+     & 1 1 0 1
+     ----------
+       0 1 0 1 
+    
+    0101 in decimal : 5
+    thus, 13 & 7 = 5
+
+
+OR operator (|):
+
+    1 true    -> true
+    all false -> false
+    
+    true & false -> true    (1 | 0 -> 1)
+    true & true  -> true    (1 | 1 -> 1)
+    false & false -> false  (0 | 0 -> 0)
+    
+    eg. 13 | 7
+    7 in binary: 0111
+    13 in binary: 1101
+    
+       0 1 1 1
+     | 1 1 0 1
+     ----------
+       1 1 1 1
+    
+    1111 in decimal : 15
+    thus, 13 | 7 = 15
+
+
+XOR operator (^):
+
+    no. of 1s -> odd : 1
+    no. of 1s -> even : 0
+    
+    eg. XOR of 7 and 13,
+
+    0 1 1 1  (binary for 7)
+  ^ 1 1 0 1  (binary for 13)
+   ---------
+    1 0 1 0
+
+    1010 in decimal is 10, 
+    hence, 13 ^ 7 =10
+
+
+RIGHT SHIFT OPERATOR (>>) :
+
+    the right shift operator shifts the bits of a number to the right 
+    by a specified number of positions.
+    
+    by doing the right shift, the rightmost bit will be discarded, which is also called
+    the least significant bit.
+    
+    eg. 13 >> 1:
+    
+    1101 >> 1 = 0110 
+    (the rightmost bit is 1, it will be discarded and other bits will be shifted right 
+    and on the leftmost bit, 0 will be appended)
+    
+    Each right shift divides the number by 2, discarding the least significant bits 
+    (rightmost bits) and adding zeros to the left.
+    
+    when we do n >> k, it result into n/(2^k)
+
+
+LEFT SHIFT OPERATOR (<<) :
+
+    The left shift operator (<<) shifts the bits of a number to the left 
+    by a specified number of positions.
+    
+    By doing the left shift, the leftmost bit is discarded, 
+    and zeros are added to the right (least significant) end.
+    
+    For example:
+    
+    13 << 1 shifts the bits of 13 (which is 1101 in binary) one position to the left, 
+    resulting in 11010 (which is 26 in decimal).
+    Each left shift multiplies the number by 2, effectively doubling it with each shift, 
+    and new zeros are introduced on the rightmost side.
+    
+    When we do n << k, it results in n * (2^k).
+    
+    Example:
+    
+    13 << 1:
+    
+    1101 << 1 = 11010 (the leftmost bit is shifted left, and a 0 is appended at the right).
+
+
+NOT operator (~):
+
+    Not operator inverts the bits of a given number, including the bit for the sign.
+
+    eg. consider for the number 5:
+    x= ~5
+
+    1. flip the bits
+    2. check -ve (if signed bit is 1)
+          if yes, store 2's compliment 
+          if no, stop
+          
+    ~5 will become -6 this way.
+
+
+    now, consider for negative numbers,
+    eg. consider for -6
+
+    negative nos are stored in the form of 2's compliment in the memory.
+    (find 1s compliment of 6, then to find 2's compliment by adding 1 and the resultant no will be stored in the memory as -6)
+
+    after that, do the same process followed above to find ~ of a negative number.
+
+    
+
+    
+    
+
+
+
+
+
+
+
+
+
+
