@@ -36,6 +36,24 @@ now, selecting the minimum from these two,
 cost = min(left, right)
 */
 
+// Recursion
+
+class Solution {
+  public:
+  int solve(vector<int>& heights, int n){
+        if(n <= 1) return 0;
+        
+        int oneStep= solve(heights, n-1) + abs(heights[n]- heights[n-1]);
+        int twoStep= solve(heights, n-2) + abs(heights[n]- heights[n-2]);
+        
+        return min(oneStep, twoStep);
+    }  
+  
+    int minimumEnergy(vector<int>& height, int n) {
+        return solve(height, n);
+    }
+};
+
 
 // Memoization
 
